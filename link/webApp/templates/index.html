@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="/static/style.css" />
+        <title>Link</title>
+    </head>
+    <body>
+        <h1>Link website</h1>
+        <form action="/" method="POST">
+            {% csrf_token %}
+            <div>
+            <label for="link">Enter a link:</label>
+            {{ form.link }}
+            </div>
+            <div class="center">
+                <input type="submit" value="Save the link" class="">
+            </div>
+            
+        </form>
+        <h2>Links:</h2>
+        <ul>
+            {% for link in list_link%}
+            <a href="{{link.link}}"><li>{{link.link}}</li></a>
+            {%endfor%}
+        </ul>
+    </body>
+</html>
