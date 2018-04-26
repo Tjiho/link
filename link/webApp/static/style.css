@@ -87,6 +87,16 @@ li
     text-decoration: none;
     font-size: 1.2em;
     color:darkslategray;
+    vertical-align: middle;
+}
+
+li img
+{
+    float: right;
+    width: 30px;
+    vertical-align: middle;
+    position: relative;
+    top:-5px;
 }
 
 li:hover

@@ -8,17 +8,11 @@ from webApp.models import LinkModel
 class Index(View):
     html = 'index.html'
 
-    """
-        return index page if not authentificated else home account page
-    """
     def get(self, request, *args, **kwargs):
             form = LinkForm()
             list_link = LinkModel.objects.all()
             return render(request, self.html, locals())
 
-    """
-        login with arel...
-    """
     def post(self,request,*args):
         form = LinkForm(request.POST)
         error = ""
@@ -29,3 +23,17 @@ class Index(View):
             
         list_link = LinkModel.objects.all()
         return render(request, self.html, locals())
+
+class Delete(View):
+    html = 'index.html'
+
+    """
+        return index page if not authentificated else home account page
+    """
+    def get(self, request, *args, **kwargs):
+            key = kwargs.get("key")
+            link = LinkModel.objects.get(pk=key)
+            link.delete()
+            form = LinkForm()
+            list_link = LinkModel.objects.all()
+            return render(request, self.html, locals())
