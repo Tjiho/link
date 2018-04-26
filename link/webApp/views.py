@@ -19,7 +19,10 @@ class Index(View):
         if form.is_valid():
             print("valid !")
             link_data = form.cleaned_data['link']
-            link_bdd = LinkModel.objects.create(link=link_data)
+            try:
+                link_bdd = LinkModel.objects.create(link=link_data)
+            except:
+                error = "the link already exists"
             
         list_link = LinkModel.objects.all()
         return render(request, self.html, locals())
@@ -32,8 +35,12 @@ class Delete(View):
     """
     def get(self, request, *args, **kwargs):
             key = kwargs.get("key")
-            link = LinkModel.objects.get(pk=key)
-            link.delete()
+            try:
+                link = LinkModel.objects.get(pk=key)
+                link.delete()
+                
+            except:
+                error = "not a valid ID"
             form = LinkForm()
             list_link = LinkModel.objects.all()
             return render(request, self.html, locals())

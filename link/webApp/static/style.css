@@ -103,3 +103,15 @@ li:hover
 {
     border-color: #49C628;
 }
+
+
+.error
+{
+    border: 1px solid red;
+    padding: 5px;
+    text-align: center;
+    background-color: red;
+    margin: 20px;
+    color: white;
+    font-weight: 800;
+}
