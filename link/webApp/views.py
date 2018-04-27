@@ -19,7 +19,7 @@ class Index(View):
         error = ""
         if form.is_valid():
             print("valid !")
-            link_data = form.cleaned_data['link']
+            link_data = form.cleaned_data['link'].strip()
             p = re.compile('http(s)?:\/\/*')
             if p.match(link_data):
                 try:

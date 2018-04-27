@@ -27,12 +27,12 @@
         <h2>Links:</h2>
         <ul>
             {% for link in list_link%}
-            <a href="{{link.link}}">
-                <li>
-                    {{link.link}}
-                    <a href="/delete/{{link.pk}}/"><img src="/static/delete.svg"/></a>
-                </li>
-            </a>
+            
+            <li>
+                <a class="link" href="{{link.link}}">{{link.link}}</a>
+                <a class="delete" href="/delete/{{link.pk}}/"><img src="/static/delete.svg"/></a>
+            </li>
+            
             {%endfor%}
         </ul>
     </body>
