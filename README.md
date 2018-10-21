@@ -20,3 +20,9 @@ Launch
 ```
     python3 manage.py runserver
 ```
+
+Install and launch with Docker
+----------
+```
+     docker-compose up
+``` 
