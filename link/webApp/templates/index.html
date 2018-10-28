@@ -6,8 +6,8 @@
         <title>Link</title>
     </head>
     <body>
-        
-        <h1>Link website</h1>
+        <main>
+        <h1>Clac.link</h1>
         {% if error %}
             <div class="error">
                 {{error}}
@@ -16,24 +16,27 @@
         <form action="/" method="POST">
             {% csrf_token %}
             <div>
-            <label for="link">Enter a link:</label>
             {{ form.link }}
             </div>
             <div class="center">
-                <input type="submit" value="Save the link" class="">
+                <input type="submit" value="Save it !" class="">
             </div>
             
         </form>
-        <h2>Links:</h2>
+        <div>
+        <h2>Last five links:</h2>
         <ul>
             {% for link in list_link%}
             
-            <li>
-                <a class="link" href="{{link.link}}">{{link.link}}</a>
-                <a class="delete" href="/delete/{{link.pk}}/"><img src="/static/delete.svg"/></a>
-            </li>
+            <a href="http://clac.link/{{link.key}}">
+                <li>
+                    <span class="link" >{{link.key}}</span>
+                </li>
+            </a>
             
             {%endfor%}
         </ul>
+        </div>
+        </main>
     </body>
 </html>
