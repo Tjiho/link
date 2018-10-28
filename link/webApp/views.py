@@ -34,7 +34,7 @@ class Index(View):
             else:
                 error = "not a valid url"
             
-        list_link = LinkModel.objects.all()
+        list_link = LinkModel.objects.all().order_by("id").reverse()[:5]
         return render(request, self.html, locals())
 
     def get_name(self):
